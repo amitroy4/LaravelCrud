@@ -16,25 +16,25 @@
 <body>
     <div class="container" >
         <div class="flex justify-between my-5">
-            <h2 class="text-red-500">Create</h2>
+            <h2 class="text-red-500">Edit - {{$ourPost->name}}</h2>
             <a href="/" class="bg-green-600 text-white rounded p-1" >Back To Home</a>
         </div>
         <div>
-            <form method='POST' action="{{route('store')}}" enctype='multipart/form-data'>
+            <form method='POST' action="{{route('update',$ourPost->id)}}" enctype='multipart/form-data'>
                 @csrf
                 <div class='flex flex-col gap-5'>
                     <label for="">Name</label>
-                    <input type="text" name='name' value='{{old("name")}}'>
+                    <input type="text" name='name' value='{{$ourPost->name}}'>
                     @error('name')
                     <p class='text-red-600'>{{$message}}</p>
                     @enderror
                     <label for="">Description</label>
-                    <input type="text" name='description' value='{{old("description")}}'>
+                    <input type="text" name='description' value='{{$ourPost->description}}'>
                     @error('description')
                     <p class='text-red-600'>{{$message}}</p>
                     @enderror
                     <label for="">Select Image</label>
-                    <input type="file" name='image' value='{{old("image")}}'>
+                    <input type="file" name='image' value='{{$ourPost->image}}'>
                     @error('image')
                     <p class='text-red-600'>{{$message}}</p>
                     @enderror
