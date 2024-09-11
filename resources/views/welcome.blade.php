@@ -19,6 +19,9 @@
             <h2 class="text-red-500">Home</h2>
             <a href="/create" class="bg-green-600 text-white rounded p-1" >Add New Post</a>
         </div>
+        @if(session('success'))
+        <h2 class='text-green-600'>{{session('success')}}</h2>
+        @endif
     </div>
 </body>
 </html>
